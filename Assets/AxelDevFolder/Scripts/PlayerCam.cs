@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// inspired by Dave / GameDevelopment on YouTube
+
 public class PlayerCam : MonoBehaviour
 {
     public float sensX;
@@ -21,6 +23,7 @@ public class PlayerCam : MonoBehaviour
         controls = new InputMaster();
 
         controls.Player.Orientation.performed += ctx => mouseDelta = ctx.ReadValue<Vector2>();
+        // controls.Player.Orientation.performed += ctx => Debug.Log(mouseDelta);
         controls.Player.Orientation.canceled += ctx => mouseDelta = Vector2.zero;
     }
 
