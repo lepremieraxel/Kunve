@@ -4,9 +4,9 @@ using UnityEngine;
 
 // inspired by TutoUnityFR on Youtube
 
-public class PickupItem : MonoBehaviour
+public class InteractionBehaviour : MonoBehaviour
 {
-    [SerializeField] private float pickupRange = 2.6f;
+    [SerializeField] private float interactionRange = 2.6f;
     private InputMaster controls;
     private bool isClicked = false;
     public PickupBehaviour playerPickupBehaviour;
@@ -15,21 +15,28 @@ public class PickupItem : MonoBehaviour
     {
         controls = new InputMaster();
 
-        controls.Player.PickUp.performed += ctx => isClicked = true;
-        controls.Player.PickUp.canceled += ctx => isClicked = false;
+        controls.Player.Interact.performed += ctx => isClicked = true;
+        controls.Player.Interact.canceled += ctx => isClicked = false;
     }
     void Update()
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
 
-        if (Physics.Raycast(ray, out hit, pickupRange))
+        if (Physics.Raycast(ray, out hit, interactionRange))
         {
             if(hit.transform.CompareTag("Item"))
             {
                 if(isClicked)
                 {
                     playerPickupBehaviour.DoPickup(hit.transform.gameObject.GetComponent<Item>());
+                }
+            }
+            if (hit.transform.CompareTag("NPC"))
+            {
+                if (isClicked)
+                {
+                    
                 }
             }
         }
@@ -41,6 +48,12 @@ public class PickupItem : MonoBehaviour
             if (isClicked)
             {
                 playerPickupBehaviour.DoPickup(other.gameObject.GetComponent<Item>());
+            }
+        }
+        if (other.CompareTag("NPC"))
+        {
+            if (isClicked)
+            {
             }
         }
     }
