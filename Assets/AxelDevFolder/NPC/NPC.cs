@@ -8,6 +8,16 @@ public class NPC : MonoBehaviour
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
 
+    public CurrentState state;
+    public enum CurrentState
+    {
+        NoInteraction,
+        FirstInteraction,
+        NoTraded,
+        Traded,
+        Kunve
+    }
+
     private void Awake()
     {
         meshFilter = GetComponent<MeshFilter>();
@@ -17,5 +27,14 @@ public class NPC : MonoBehaviour
     {
         meshFilter.mesh = npcData.mesh;
         meshRenderer.material = npcData.material;
+    }
+
+    public CurrentState GetState()
+    {
+        return state;
+    }
+    public void SetState(CurrentState newState)
+    {
+        state = newState;
     }
 }

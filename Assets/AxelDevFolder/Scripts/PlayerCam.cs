@@ -18,6 +18,8 @@ public class PlayerCam : MonoBehaviour
 
     private InputMaster controls;
 
+    [SerializeField] private PlayerBehaviour player;
+
     private void Awake()
     {
         controls = new InputMaster();
@@ -27,25 +29,23 @@ public class PlayerCam : MonoBehaviour
         controls.Player.Orientation.canceled += ctx => mouseDelta = Vector2.zero;
     }
 
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
     private void Update()
     {
-        float mouseX = mouseDelta.x * Time.deltaTime * sensX;
-        float mouseY = mouseDelta.y * Time.deltaTime * sensY;
+        if(player.gameMode == PlayerBehaviour.GameMode.play)
+        {
+            float mouseX = mouseDelta.x * Time.deltaTime * sensX;
+            float mouseY = mouseDelta.y * Time.deltaTime * sensY;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
+            yRotation += mouseX;
+            xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        }
     }
+
     private void OnEnable()
     {
         controls.Player.Enable();

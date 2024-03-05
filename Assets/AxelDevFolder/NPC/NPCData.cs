@@ -4,13 +4,18 @@ using UnityEngine;
 
 // inspired by TutoUnityFR on Youtube
 
-[CreateAssetMenu(fileName = "NPCData", menuName = "Kunve/NPCs/New NPC")]
+[CreateAssetMenu(fileName = "NPCData", menuName = "Kunve/New NPC")]
 public class NPCData : ScriptableObject
 {
     public enum NPCType
     {
         Worker,
         Explorer
+    }
+    public enum NPCNationality
+    {
+        Sensolo,
+        Kunsolo
     }
 
     [Header("Renderer")]
@@ -21,6 +26,7 @@ public class NPCData : ScriptableObject
     new public string name;
     public string personality;
     public NPCType type;
+    public NPCNationality nationality;
 
     [Header("Dialogue")]
     [TextArea] public string firstInteractionDialogue;
@@ -28,9 +34,9 @@ public class NPCData : ScriptableObject
     [TextArea] public string tradedDialogue;
 
     [Header("Trade")]
-    public ItemData[] demand;
-    public ItemData[] offer;
+    public List<ItemData> demand;
+    public List<ItemData> offer;
 
     [Header("Production")]
-    public ItemData[] productionItems;
+    public List<ItemData> productionItems;
 }

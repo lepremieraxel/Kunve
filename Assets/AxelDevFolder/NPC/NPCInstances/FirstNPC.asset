@@ -24,9 +24,14 @@ MonoBehaviour:
     b\xFBches de bois et je rejoindrai Kunve."
   tradedDialogue: "Merci beaucoup Mickaelo. On se voit bient\xF4t \xE0 Kunve."
   demand:
-  - {fileID: 11400000, guid: cef2a730bd0127e4986ec2a7906b3e8f, type: 2}
+  - {fileID: 11400000, guid: 876bb91c71bcd5440bbf4116316e033b, type: 2}
+  - {fileID: 11400000, guid: 876bb91c71bcd5440bbf4116316e033b, type: 2}
+  - {fileID: 11400000, guid: 876bb91c71bcd5440bbf4116316e033b, type: 2}
   offer:
-  - {fileID: 11400000, guid: cef2a730bd0127e4986ec2a7906b3e8f, type: 2}
-  - {fileID: 11400000, guid: cef2a730bd0127e4986ec2a7906b3e8f, type: 2}
+  - {fileID: 11400000, guid: f4c0f752df691594c829e7ef7919c03e, type: 2}
+  - {fileID: 11400000, guid: f4c0f752df691594c829e7ef7919c03e, type: 2}
+  - {fileID: 11400000, guid: f4c0f752df691594c829e7ef7919c03e, type: 2}
+  - {fileID: 11400000, guid: f4c0f752df691594c829e7ef7919c03e, type: 2}
+  - {fileID: 11400000, guid: f4c0f752df691594c829e7ef7919c03e, type: 2}
   productionItems:
-  - {fileID: 11400000, guid: cef2a730bd0127e4986ec2a7906b3e8f, type: 2}
+  - {fileID: 11400000, guid: f4c0f752df691594c829e7ef7919c03e, type: 2}
